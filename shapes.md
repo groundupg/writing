@@ -38,14 +38,43 @@ the line represents the circle's radius -- l[0] as the center and l[0] as an out
 
 ```go
 // Length of the radius of a given circle given a center & outer point
-func Radius(c, x) Number {
+func Radius(c, x Point) Number {
   return Sqrt((x[0]-c[0])^2 + (x[1]-c[1])^2)
 }
-
-
 func ConstructCircle(l Line) Shape {
   c, x := l[0], l[1]
   r := Radius(c, x)
-  
 }
 ```
+
+### 30.11.25
+
+The points of a circle can be represented as the set of all (x, y) where r^2 = (x-h)^2 + (y-k)^2,
+where h, k represent the coordinates of the center of the circle.
+
+The question still stands however -- How can we produce all of the coordinates of a circle given
+A line which represents the radius of the circle.
+We can:
+  1. Determine r
+  2. Determine h, k (the point of (h, k) can be called c)
+
+How do we build an algorithm which will produce a collection of (x, y) which satisfy the formula
+presented above.
+
+If one were to take a sheet of paper and place a center point, one can then draw a square around
+the point, where the point is the center of the square. Continue this, Shifting the position of
+the square each time, until the points of the square satify the appearance of a circle.
+
+Is it possible that we, given an x or y, may check if the equation referenced above is valid,
+and that on each iteration we may increment or decrement the given x or y.
+
+```go
+func Radius(c, x Point) Number {
+  return Sqrt((x[0]-c[0])^2 + (x[1]-c[1])^2)
+}
+
+func Point(c, r, x) Point | None {
+  
+    
+}
+``` 
